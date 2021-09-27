@@ -2,12 +2,13 @@ import { useRouter } from 'next/router';
 
 export default function Home() {
   const router = useRouter();
-  const { sport, sportId } = router.query;
+  const { sport, sId, sportEventType } = router.query;
   return (
     <div>
       <h1>Router test</h1>
       {sport}
-      {sportId}
+      {sId}
+      {sportEventType}
     </div>
   )
 }
