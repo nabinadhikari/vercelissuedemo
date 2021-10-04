@@ -1,7 +1,7 @@
 export default function PostDetail({ post, cachedNumber }) {
     return (
         <div>
-            <p>Cached for {cachedNumber} seconds</p>
+            <p>Cached for {cachedNumber} seconds. {post.dynamic}</p>
             <h1>{post.title}</h1>
             <p>{post.body}</p>
         </div>
@@ -12,6 +12,7 @@ export async function getStaticProps(context) {
     const { postId } = context.params;
     const post = await fetch('https://jsonplaceholder.typicode.com/posts/' + postId)
         .then(r => r.json());
+    post['dynamic'] = Math.floor(Math.random() * 100);
     const cachedNumber = 100 - Number.parseInt(postId);
 
     return {
