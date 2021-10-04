@@ -20,7 +20,7 @@ export async function getStaticProps(context) {
             post,
             cachedNumber,
         }, // will be passed to the page component as props
-        revalidate: 20,
+        revalidate: cachedNumber,
     };
 }
 
